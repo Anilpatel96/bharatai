@@ -18,7 +18,7 @@ const addAiPrompt = async(req,res) =>{
 
    try{
      await addNewAiPrompt.save();
-     res.status(201).json({success:true,data:addNewAiPrompt});
+     res.status(200).json({success:true,data:addNewAiPrompt});
    }catch(error){
     console.log(error);
     res.status(500).json({success:false,message : "Something went wrong"});
@@ -53,7 +53,7 @@ const deleteAiPrompt = async (req,res) =>{
     const id=data.promptId;
     try{
         const deletedPrompt=await aiPromptModel.deleteOne({promptId:data.promptId});
-        res.status(202).json({success:true,data:deletedPrompt});
+        res.status(200).json({success:true,data:deletedPrompt});
     }catch(error){
         console.log(error);
         res.status(500).json({success:false,message : "Something went wrong"});
