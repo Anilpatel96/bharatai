@@ -38,7 +38,7 @@ const AiPromptSchema=mongoose.Schema({
     
 },{timestamps:true}
 );
-NewsSchema.index({ promptId: 'text' });
+AiPromptSchema.index({ promptId: 'text' });
 
 
 module.exports=mongoose.model("AiPrompt",AiPromptSchema);
