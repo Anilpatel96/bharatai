@@ -53,7 +53,7 @@ const deleteAiPrompt = async (req,res) =>{
     const id=req.params.id;
     try{
         const deletedPrompt=await aiPromptModel.deleteOne({promptId:id});
-        res.status(200).json({success:true,data:deletedPrompt});
+        res.status(200).json({success:true,data:req.body});
     }catch(error){
         console.log(error);
         res.status(500).json({success:false,message : "Something went wrong"});
