@@ -30,7 +30,7 @@ const updateAiPrompt = async (req,res) =>{
     const data=req.body;
 
     const updateAiPrompt={
-        updateAt:Date.now(),
+        updateAt:new Date(),
         promptId:data.promptId,
         iconImageUrl:data.iconImageUrl,
         title:data.title,
