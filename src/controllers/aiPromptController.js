@@ -42,7 +42,7 @@ const updateAiPrompt = async (req,res) =>{
     try{
         console.log("in update line number 43 ");
         var updatePrompt=await aiPromptModel.updateOne({promptId:data.promptId},updateAiPrompt,{new:true});
-        res.status(200).json({success:true,data:updatePrompt});
+        res.status(200).json({success:true,data:updateAiPrompt});
     }catch(error){
         console.log(error);
         res.status(500).json({success:false,message : "Something went wrong "+error});
