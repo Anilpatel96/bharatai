@@ -13,8 +13,8 @@ aiRouter.post("/"+process.env.PATH_KEY,myAuth,OpenAiChat);
 
 ///ai prompt operations
 aiRouter.post("/prompts",myAuth,addAiPrompt);
-aiRouter.put("/prompts",myAuth,updateAiPrompt);
-aiRouter.delete("/prompts",myAuth,deleteAiPrompt);
+aiRouter.put("/prompts/:id",myAuth,updateAiPrompt);
+aiRouter.delete("/prompts/:id",myAuth,deleteAiPrompt);
 aiRouter.get("/prompts",myAuth,getAllAiPrompt);
 
 module.exports=aiRouter;
