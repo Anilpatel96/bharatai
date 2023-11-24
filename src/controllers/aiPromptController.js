@@ -30,7 +30,7 @@ const updateAiPrompt = async (req,res) =>{
     const data=req.body;
 
     const updateAiPrompt={
-        updateAt:Date.now,
+        updateAt:Date.now(),
         promptId:data.promptId,
         iconImageUrl:data.iconImageUrl,
         title:data.title,
@@ -40,6 +40,7 @@ const updateAiPrompt = async (req,res) =>{
     };
 
     try{
+        console("in update line number 43 ");
         var updatePrompt=await aiPromptModel.updateOne({promptId:data.promptId},updateAiPrompt,{new:true});
         res.status(200).json({success:true,data:updatePrompt});
     }catch(error){
