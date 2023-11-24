@@ -18,7 +18,7 @@ const addAiPrompt = async(req,res) =>{
 
    try{
      await addNewAiPrompt.save();
-     res.status(200).json({addNewAiPrompt});
+     res.status(200).json({success:true,data:addNewAiPrompt});
    }catch(error){
     console.log(error);
     res.status(500).json({success:false,message : "Something went wrong"});
@@ -41,7 +41,7 @@ const updateAiPrompt = async (req,res) =>{
 
     try{
         var updatePrompt=await aiPromptModel.updateOne({promptId:data.promptId},updateAiPrompt,{new:true});
-        res.status(200).json({updatePrompt});
+        res.status(200).json({success:true,data:updatePrompt});
     }catch(error){
         console.log(error);
         res.status(500).json({success:false,message : "Something went wrong "+error});
@@ -49,11 +49,10 @@ const updateAiPrompt = async (req,res) =>{
 }
 
 const deleteAiPrompt = async (req,res) =>{
-    const data=req.body;
-    const id=data.promptId;
+    const id=req.params.id;
     try{
-        const deletedPrompt=await aiPromptModel.deleteOne({promptId:data.promptId});
-        res.status(200).json({deletedPrompt});
+        const deletedPrompt=await aiPromptModel.deleteOne({promptId:id});
+        res.status(200).json({success:true,data:deletedPrompt});
     }catch(error){
         console.log(error);
         res.status(500).json({success:false,message : "Something went wrong"});
@@ -79,7 +78,7 @@ const getAllAiPrompt = async (req,res) =>{
         const sortOptions = getSortOptions(req);
         const skip = (page - 1) * limit;
         const getAiPrompt = await aiPromptModel.find(requestQuery).sort(sortOptions).skip(skip).limit(limit);
-        res.status(200).json({getAiPrompt});
+        res.status(200).json({success:true,data:getAiPrompt});
 
     }catch(error){
         console.log(error);
