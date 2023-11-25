@@ -29,16 +29,15 @@ const addAiPrompt = async(req,res) =>{
 const updateAiPrompt = async (req,res) =>{
     const data=req.body;
 
-    ///by using set it will replace the previus data with new one
-    ///in filter array list doesn't get added duplicate element
+    
     const updateAiPrompt={
-        $set:{updateAt:new Date(),
+        updateAt:new Date(),
         promptId:data.promptId,
         iconImageUrl:data.iconImageUrl,
         title:data.title,
         description:data.description,
         prompt:data.prompt,
-        filter:data.filter,}
+        filter:data.filter,
     };
 
     try{

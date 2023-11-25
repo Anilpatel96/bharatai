@@ -23,7 +23,10 @@ const AiPromptSchema=mongoose.Schema({
         required:[true,"Please provide prompt"]
     },
     filter:{
-        type:[String],
+        type: [{
+            type: String,
+            unique: true
+          }],
         required:[true,"Please provide filters"]
     },
     
