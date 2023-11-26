@@ -30,6 +30,7 @@ const AiPromptSchema=mongoose.Schema({
         required:[true,"Please provide filters"]
     },
     
+    
     createdAt: {
         type: Date,
         default: Date.now

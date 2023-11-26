@@ -29,7 +29,7 @@ const addAiPrompt = async(req,res) =>{
 const updateAiPrompt = async (req,res) =>{
     const data=req.body;
 
-    
+
     const updateAiPrompt={
         updateAt:new Date(),
         promptId:data.promptId,
